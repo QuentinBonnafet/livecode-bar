@@ -1,0 +1,7 @@
+<div class="overflow-x-auto mx-auto text-center align-item-center">
+  <ul class="pl-8 pb-8 flex flex-wrap -mx-2 gap-4">
+    <% users.each do |user| %>
+      <%= render 'user_card', user: user %>
+    <% end %>
+  </ul>
+</div>

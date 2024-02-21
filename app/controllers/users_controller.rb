@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    # Le sort_by est une méthode de Ruby qui permet de trier un tableau selon un critère donné
+    # Ici, on trie les utilisateurs selon leur présence. Si l'utilisateur est présent, il est placé en premier
+    @users = User.all.sort_by { |u| u.present? ? 0 : 1 }
   end
 
   def show; end
@@ -29,10 +31,15 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  ## Juste pour le fun
+  def les_vrais
+    @users = User.where(present: true)
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :description)
+    params.require(:user).permit(:name, :description, :present, :github_name)
   end
 
   def set_user

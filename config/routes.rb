@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/les-vrais', to: 'users#les_vrais'
+
   resources :users
 
   # Dorénavant nous n'avons plus besoin d'écrire chaque route du CRUD (plus bas) grâce à "resources"
