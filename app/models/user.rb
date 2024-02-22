@@ -1,6 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
 class User < ApplicationRecord
+  has_many :bars, dependent: :destroy
+
   def get_picture
     if self.image_url.present?
       self.image_url

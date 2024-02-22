@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Cleaning database"
+
+User.destroy_all
+# Bar.destroy_all
+
 User.create(name: 'Alexis', description: 'oui', github_name: 'AlexisArias')
 User.create(name: 'Bertrand de Bausset', description: 'Grand, froid, antipathique', github_name: 'bertranddebausset')
 User.create(name: 'Benjamin', description: 'Parfait', github_name: 'BetterCallBen')
@@ -23,3 +29,11 @@ User.create(name: 'Romain Le Grand Manitou', description: 'Tyran de Bertrand de 
 User.create(name: 'Valentine', description: 'Couteau-suisse (rapport à Dague, lol). Dresseuse d\'ours de ville: globalement jamais à sa place... Mais pourtant partout.', github_name: 'ValentineDague')
 User.create(name: 'Lynda', description: 'Je jongle tellement avec le code que parfois, même mon ordinateur me regarde bizarrement. Entraînement intensif pour battre des records de caféine', github_name: 'LyndaMER')
 User.create(name: 'Maxandre', description: 'aime le Ricard.', github_name: 'Wanegen')
+puts "Users created"
+
+Bar.create(name: "Barabar", address: "Rue de Quinquin", user_id: User.first.id)
+Bar.create(name: "Chez Dédé", address: "Au coinde la rue", user_id: User.second.id)
+Bar.create(name: "Ze Bar", address: "Address", user_id: User.last.id)
+puts "Bars created"
+
+puts "Finished"

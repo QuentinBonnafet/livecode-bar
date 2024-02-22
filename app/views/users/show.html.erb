@@ -11,4 +11,12 @@
     <%= link_to 'Modifier', edit_user_path(@user), class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
     <%= button_to "Suprimer", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" %>
   </div>
+
+  <div class="flex justify-between mt-4">
+    <%= link_to "Créer un bar", new_user_bar_path(@user), class: "bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" %>
+  </div>
+
+  <% @user.bars.each do |bar| %>
+    <h1><%= bar.name %></h1>
+  <% end %>
 </div>
